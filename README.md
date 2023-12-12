@@ -1,3 +1,5 @@
+# TEST: Text Prototype Aligned Embedding to Activate LLM's Ability for Time Series
+
 ## Requirements
 
  - Install Python>=3.8, PyTorch 1.8.1.
