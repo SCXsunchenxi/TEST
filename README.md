@@ -72,11 +72,26 @@ Adding the `--load_encoder` option allows to load a model from the specified sav
 
 Setting the `--gpu -1` option to use cpu.
 
-### Training LLM4TS on the UEA archives
+### Training LLM4TS on the UEA archives (Classification)
 
 To train a model on the EthanolConcentration dataset from the UEA archive with specific gpu:
 
 `python main_LLM4TS.py --output_dir experiments --comment "classification from Scratch" --name EthanolConcentration --records_file Classification_records.xls --data_dir path/to/EthanolConcentration/folder/  --data_class tsra --pattern TRAIN --val_pattern TEST --epochs 50 --lr 0.001 --patch_size 8 --stride 8 --optimizer RAdam --d_model 768 --pos_encoding learnable --task classification
 --key_metric accuracy --gpu 0`
+
+Setting the `--gpu -1` option to use cpu.
+
+
+### Training encoder on the traffic archives
+
+To train a model on the traffic dataset with specific gpu:
+
+`python main_encoder.py --root_path path/to/traffic/folder/ --data_path traffic.csv --model_id traffic --name traffic --data custom --seq_len 512 --output_dir ./experiments_encoder --gpu 0`
+
+### Training LLM4TS on the traffic archives (Forecasting)
+
+To train a model on the traffic dataset with specific gpu:
+
+`python main_LLM4TS.py --root_path path/to/traffic/folder/ --data_path traffic.csv --model_id electricity --name electricity --data custom --seq_len 512 --label_len 48 --pred_len 96 --output_dir ./experiments --gpu 0`
 
 Setting the `--gpu -1` option to use cpu.
